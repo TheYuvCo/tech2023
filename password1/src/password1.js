@@ -5,14 +5,14 @@ function Password(props) {
     const {delta,setPassowrd} = props
 
     useEffect(()=>{
-        if(delta < 100){
-          setPassowrd('weak!')
+        if(delta.length < 3){
+          setPassowrd('weak :(')
         }
-        if(delta >= 100 && delta <= 1000000){
-            setPassowrd('medium!!!')
+        if(delta.length >= 3 && delta.length <= 6){
+            setPassowrd('medium')
         }
-        if(delta > 1000000){
-            setPassowrd('strong!!!!!')
+        if(delta.length > 6){
+            setPassowrd('strong!!!')
         }
       },[setPassowrd,delta])
 

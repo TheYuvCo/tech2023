@@ -13,11 +13,11 @@ function App() {
  
   function ChangeNumber(event){
     console.log(event);
-    setDelta(Number(event.target.value))
+    setDelta((event.target.value))
   }
 
 useEffect (() => {
-if (delta > 100){
+if (delta.length > 2){
   setPassVibe(false)
   console.log(passVibe)
 }
@@ -36,10 +36,12 @@ else{
 
   return (
     <div className="App">
-      <input type = "number" value={delta} onChange = {ChangeNumber}/>
+      <h2>Insert your password:</h2>
+      <input type="password" value={delta} onChange = {ChangeNumber}/>
+      <p></p>
       <button disabled={passVibe} >submit</button>
       <p></p>
-        your password is {passVal}
+        <h3>your password is {passVal}</h3>
       <Password  delta = {delta} setPassowrd = {setPassowrd} ></Password>
     </div>
   );

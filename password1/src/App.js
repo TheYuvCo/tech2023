@@ -5,7 +5,7 @@ import Password from './password1';
 
 function App() {
 
-  const [delta,setDelta] = useState(1)
+  const [delta,setDelta] = useState('')
   const [passVal,setPass] = useState('weak')
   const [passVibe, setPassVibe] = useState(true)
 

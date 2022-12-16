@@ -16,18 +16,7 @@ function Password(props) {
         }
       },[setPassowrd,delta])
 
-      /*
-
-      function changePassVibe(){
-        if(delta >= 100){
-            passVibe(true);
-        }
-        else{
-            passVibe(false)
-        }
-      }
-*/
-
+      
   return (
     <div>
     </div>

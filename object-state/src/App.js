@@ -10,17 +10,21 @@ function App() {
     setToDo(e.target.value)
   }
 
+  function addItem(){
+    settoDoList([...toDoList,toDo])
+    console.log(toDoList)
+  }
 
   return (
     <div className="App">
       <input value = {toDo} onChange = {handleToDoChange}/>
-      <button>add to list</button>
+      <button onClick={addItem}> add to list</button>
       <h3>list of things to do</h3>
       <ul>
         
         {toDoList.map(
           todo => (
-            <li>{todo + ' ' + '!!!'}</li>
+            <li>{todo + '!!!'}</li>
           ))
         }
 

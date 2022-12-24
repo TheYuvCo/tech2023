@@ -38,7 +38,7 @@ function App() {
             })}
 
           </table>
-          <h3>adding names</h3>
+          <h3>adding names list:</h3>
           <ul>
             {NamesList.map(
               addTheName => (

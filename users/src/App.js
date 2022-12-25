@@ -5,10 +5,16 @@ import { useState } from 'react';
 function App() {
 
   const [addName, setName] = useState('')
+  const [addEmail,setEmail] = useState('')
   const [NamesList,setNameList] = useState([])
+  const [EmailList,setEmailList] = useState([])
 
   function handleToDoChange(e){
     setName(e.target.value)
+  }
+
+  function handleToChangeEmail(e){
+    setEmail(e.target.value)
   }
 
   function addingName(){
@@ -16,12 +22,22 @@ function App() {
     console.log(NamesList)
   }
 
+  function addingEmail(){
+    setEmailList([...EmailList,addEmail])
+    console.log(EmailList)
+  }
+
+
 
   return (
     <div className="App">
-      <h3>all names and emails:</h3>
-      <input value = {addName} onChange = {handleToDoChange}></input> 
-      <button onClick={addingName}>add to list</button>
+      <body>
+      <input value = {addName} onChange = {handleToDoChange}></input>
+      <button onClick={addingName}>add name to list</button>
+      <p></p>
+      <input value = {addEmail} onChange = {handleToChangeEmail}></input> 
+      <button onClick={addingEmail}>add email to list</button> 
+      <h2>all names and emails from JSON:</h2>
       <table>
             <tr>
               <th>name</th>
@@ -38,6 +54,9 @@ function App() {
             })}
 
           </table>
+
+          <div class = "row">
+          <div class = "column">
           <h3>adding names list:</h3>
           <ul>
             {NamesList.map(
@@ -48,7 +67,21 @@ function App() {
 
             }
           </ul>
+          </div>
 
+          <div class = "column">
+          <h3>adding Emails list:</h3>
+            <ul>
+              {EmailList.map(
+                addEmail => (
+                  <li>{addEmail}</li>
+                )
+              )}
+            </ul>
+            </div>
+            </div>
+
+            </body>
     </div>
   );
 };

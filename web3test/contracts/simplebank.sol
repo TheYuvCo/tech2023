@@ -27,7 +27,6 @@ contract simplebank {
     }
 
 
-
     function homework_LastFunds(uint amount) public payable{
         address last_funder = msg.sender;
         lastFunds[last_funder] = amount;
@@ -46,15 +45,15 @@ contract simplebank {
 // view - the func don't change the state of contract (read only KAZE) - good for gaz!
     function getAllFunders() external view returns(address[] memory){
         address[] memory _funders = new address[](numberOfFunders);
-        for(uint i=0; i < numberOfFunders; i++){
+        for(uint i=0; i< numberOfFunders; i++){
             _funders[i] = lutFunders[i];
         }
         return _funders;
     }
 
     function withdraw(uint withdrawAmount) external {
-       //msg to confirm
-       require(withdrawAmount < 1000000000000000000 || msg.sender == owner, "you can't withdraw more than 1 ether");
+        //msg to confirm
+        require(withdrawAmount < 1000000000000000000 || msg.sender == owner, "you can't withdraw more than 1 ether");
        payable (msg.sender).transfer(withdrawAmount);
     }
 

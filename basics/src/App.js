@@ -5,8 +5,9 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World</h1>
-      <Person personName = "Yuval" place = "LA"/>
-      <Person personName = "Elad" place = "gaza"/>
+      <input type = "number" value = "8"></input>
+      <Person personNName = "Yuval" place = "LA"/>
+      <Person personNName = "Elad" place = "gaza"/>
     </div>
   );
 }

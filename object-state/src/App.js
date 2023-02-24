@@ -6,11 +6,21 @@ function App() {
   const [toDo, setToDo] = useState('')
   const [toDoList,settoDoList] = useState(['buy shoes','buy a dog','buy phone'])
 
+ /* let listA = ['yuv','eli','elad']
+  let listB = listA
+  listA.push('may')
+  let listC = [...listA,'David']
+  listA.push('SHLOMO')
+  console.log(listA)
+  console.log(listB)
+  console.log(listC)*/
+
   function handleToDoChange(e){
     setToDo(e.target.value)
   }
 
   function addItem(){
+    console.log(toDoList)
     settoDoList([...toDoList,toDo])
     console.log(toDoList)
   }
@@ -23,10 +33,7 @@ function App() {
       <ul>
         
         {toDoList.map(
-          todo => (
-            <li>{todo + '!!!'}</li>
-          ))
-        }
+          (todo) => <li>{todo} {'  !'}  </li>)}
 
       </ul>
     </div>

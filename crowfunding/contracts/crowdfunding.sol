@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+
 contract Crowdfunding {
     struct Campaign {
         address payable creator;
@@ -21,8 +22,12 @@ contract Crowdfunding {
 
     mapping (uint => Campaign) public campaigns;
     
+    function sayHello() public pure returns (string memory) {
+    return "Hello, World!";
+    }
+
     function createCampaign(string memory _title, string memory _description, uint _goal,
-     uint _deadline, string memory _image) public returns(uint){
+     uint _deadline, string memory _image) public returns(uint, address , string memory, string memory,uint ,uint ,string memory,uint,bool ) {
         Campaign storage c = campaigns[numCampaigns];
 
         require(c.deadline < block.timestamp, "The deadlin must be a date in the future.");
@@ -38,9 +43,11 @@ contract Crowdfunding {
 
         numCampaigns++;
 
-        return numCampaigns -1;
+        return (numCampaigns -1,c.creator,c.title,c.description,c.goal,c.deadline,c.image,c.raised,c.complete);
         }
     
+    
+
     function contribute(uint _campaignIndex) public payable {
         Campaign storage campaign = campaigns[_campaignIndex];
         require(!campaign.complete, "Campaign already complete.");
@@ -104,3 +111,23 @@ contract Crowdfunding {
     //     payable(msg.sender).transfer(amount);
     // }
 }
+
+//שלבים להעלאת החוזה
+//truffle migrate --reset 
+//דריסת החוזה הקודם ויצירת חוזה חדש
+//truffle console
+//העלאת החוזה לגאנש
+//const instance = await Crowdfunding.deployed()
+
+//instance.createCampaign("A","aa","50","6","aaaa", {from: accounts[0]})
+//instance.createCampaign("B","bb","40","5","bbbb", {from: accounts[1]})
+//instance.getCampaigns()
+
+//instance.contribute("1",{value:"500000000000000000", from: accounts[1]})
+//instance.getContribute("1")
+
+
+
+
+
+

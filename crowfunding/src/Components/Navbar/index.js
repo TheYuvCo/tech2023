@@ -2,17 +2,16 @@ import React from "react";
 import { NavMenu, Nav, NavLink, Logo } from "./NavbarElements";
 import LogoImg from "../../assests/LOGO2.png"
 
-
 const Navbar = () => {
 return (
 	<>
 	<Nav>
 		<NavMenu>
             <Logo src ={LogoImg}></Logo>
-		<NavLink to="/Home" activeStyle>
+		<NavLink to="/Home" activestyle="true">
 			Home
 		</NavLink>
-		<NavLink to="/CreateCampaign" activeStyle>
+		<NavLink to="/CreateCampaign" activestyle="true">
             Create Campaign
 		</NavLink>
 		</NavMenu>
